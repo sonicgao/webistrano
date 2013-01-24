@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "rails", "3.2.9"
 
-gem "exception_notification"
+gem "exception_notification", "2.6.1"
 
 gem "capistrano"
 gem "open4"
