@@ -31,8 +31,11 @@ end
 group :production do
   gem "mysql2"
   gem "unicorn"
+  gem "execjs"
+  gem "therubyracer", :platforms => :ruby
 end
 
 group :assets do
   gem "jquery-rails"
+  gem "uglifier"
 end
