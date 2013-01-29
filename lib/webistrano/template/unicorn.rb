@@ -23,7 +23,7 @@ module Webistrano
       TASKS = Webistrano::Template::Base::TASKS + <<-'EOS'
 
         def unicorn_start_cmd
-          "cd #{current_path} && #{unicorn_bin} -c #{unicorn_config} -E #{rails_env} -D"
+          "cd #{current_path} && #{unicorn_bin} -E #{rails_env} -D -c #{unicorn_config}"
         end
 
         def unicorn_stop_cmd
@@ -39,13 +39,13 @@ module Webistrano
             desc "Start Unicorn directly"
             task :start, :roles => :app, :except => { :no_release => true } do
               as = fetch(:runner, "app")
-              invoke_command "#{unicorn_start_cmd} start", :via => run_method, :as => as
+              invoke_command "#{unicorn_start_cmd}", :via => run_method, :as => as
             end
             
             desc "Stop Unicorn directly"
             task :stop, :roles => :app, :except => { :no_release => true } do
               as = fetch(:runner, "app")
-              invoke_command "#{unicorn_stop_cmd} stop", :via => run_method, :as => as
+              invoke_command "#{unicorn_stop_cmd}", :via => run_method, :as => as
             end
             
             desc "Restart Unicorn app directly"
