@@ -31,6 +31,7 @@ end
 group :production do
   gem "mysql2"
   gem "unicorn"
+  gem "rubycas-client"
   gem "execjs"
   gem "therubyracer", :platforms => :ruby
 end
