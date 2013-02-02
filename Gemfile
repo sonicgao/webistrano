@@ -9,7 +9,9 @@ gem "open4"
 gem "syntax"
 gem "version_fu", :github => "jmckible/version_fu"
 gem "devise"
+gem "devise_cas_authenticatable"
 gem "devise-encryptable"
+gem "rubycas-client"
 
 group :development do
   gem "sqlite3"
@@ -31,7 +33,6 @@ end
 group :production do
   gem "mysql2"
   gem "unicorn"
-  gem "rubycas-client"
   gem "execjs"
   gem "therubyracer", :platforms => :ruby
 end
